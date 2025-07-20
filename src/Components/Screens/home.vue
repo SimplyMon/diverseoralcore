@@ -41,7 +41,7 @@
       <!-- RIGHT: SINGLE IMAGE -->
       <div class="hero__image">
         <div class="img-wrap rounded-shadow">
-          <img src="@/assets/images/hero2.png" alt="Patient smiling" />
+          <img src="../../Assets/images/hero2.png" alt="Patient smiling" />
         </div>
       </div>
     </div>
