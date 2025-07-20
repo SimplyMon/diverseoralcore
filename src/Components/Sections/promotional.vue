@@ -7,7 +7,7 @@
           Brighten your smile with our expert whitening treatment. Book before
           July ends and enjoy this exclusive deal.
         </p>
-        <router-link to="/booking" class="promo-banner__button"
+        <router-link to="/book" class="promo-banner__button"
           >Book Now</router-link
         >
       </div>
