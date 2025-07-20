@@ -15,7 +15,7 @@
             <p>Years of Experience</p>
           </div>
           <div class="stat">
-            <h3>18K+</h3>
+            <h3>18k+</h3>
             <p>Satisfied Customers</p>
           </div>
           <div class="stat">
@@ -25,14 +25,17 @@
         </div>
 
         <div class="hero__buttons">
-          <router-link
+          <!-- <router-link
             to="/services"
             class="btn btn--secondary"
             id="view-services"
           >
             View Services
-          </router-link>
-          <router-link to="/booking" class="btn btn--secondary">
+          </router-link> -->
+          <a href="#services" class="btn btn--secondary" id="view-services"
+            >View Services</a
+          >
+          <router-link to="/book" class="btn btn--secondary">
             Book Appointment
           </router-link>
         </div>

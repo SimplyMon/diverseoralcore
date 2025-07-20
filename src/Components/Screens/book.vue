@@ -8,12 +8,13 @@
           your dental care simple, comfortable, and convenient.
         </p>
 
-        <form class="booking__form">
+        <form class="booking__form" @submit.prevent="submitForm">
           <div class="form-group">
             <label for="name">Full Name</label>
             <input
               type="text"
               id="name"
+              v-model="form.name"
               placeholder="Enter your name"
               required
             />
@@ -24,6 +25,7 @@
             <input
               type="email"
               id="email"
+              v-model="form.email"
               placeholder="Enter your email"
               required
             />
@@ -31,18 +33,31 @@
 
           <div class="form-group">
             <label for="date">Preferred Date</label>
-            <input type="date" id="date" required />
+            <input type="date" id="date" v-model="form.date" required />
           </div>
 
           <div class="form-group">
             <label for="message">Message (Optional)</label>
-            <textarea id="message" placeholder="Tell us more..."></textarea>
+            <textarea
+              id="message"
+              v-model="form.message"
+              placeholder="Tell us more..."
+            ></textarea>
           </div>
 
           <button type="submit" class="btn btn--primary">
             Submit Appointment
           </button>
         </form>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div v-if="showModal" class="modal-overlay">
+      <div class="modal-content">
+        <h3>Success!</h3>
+        <p>Your appointment request has been sent.</p>
+        <button @click="closeModal" class="btn btn--primary">OK</button>
       </div>
     </div>
   </section>
@@ -59,10 +74,13 @@ const form = ref({
   message: "",
 });
 
+const showModal = ref(false);
+
 function submitForm() {
   console.log("Appointment Request:", form.value);
-  alert("Appointment request submitted!");
-  // You can replace this with Firebase submission logic later
+  showModal.value = true;
+
+  // Reset form values
   form.value = {
     name: "",
     email: "",
@@ -70,6 +88,10 @@ function submitForm() {
     date: "",
     message: "",
   };
+}
+
+function closeModal() {
+  showModal.value = false;
 }
 </script>
 
@@ -173,6 +195,39 @@ textarea:focus {
   background-color: #0284c7;
 }
 
+/* MODAL STYLES */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 41, 59, 0.5); /* semi-dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #0ea5e9;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
 @media (max-width: 767px) {
   .booking__text h2 {
     font-size: 1.75rem;
@@ -186,6 +241,7 @@ textarea:focus {
   textarea {
     font-size: 0.95rem;
   }
+
   .booking-section {
     padding: 2rem 1rem;
   }
