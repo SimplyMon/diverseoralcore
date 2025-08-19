@@ -119,7 +119,7 @@ const closeModal = () => {
 }
 .navbar__logo span {
   font-weight: 900;
-  color: #151a42;
+  color: #131B42;
 }
 
 .navbar__logo img {
@@ -169,7 +169,7 @@ const closeModal = () => {
 }
 
 .navbar__links li .cta {
-  background-color: #0ea5e9;
+  background-color: #131B42;
   color: white;
   padding: 0.5rem 1.25rem;
   border-radius: 25px;
@@ -178,7 +178,7 @@ const closeModal = () => {
 }
 
 .navbar__links li .cta:hover {
-  background-color: #005fa3;
+  background-color: #263063;
 }
 
 .navbar__links li a:hover:not(.cta) {
@@ -209,7 +209,7 @@ const closeModal = () => {
 }
 
 .contact-modal-content h2 {
-  color: #151a42;
+  color: #131B42;
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
 }
@@ -232,7 +232,7 @@ const closeModal = () => {
 }
 
 .contact-list strong {
-  color: #0ea5e9;
+  color: #131B42;
   font-weight: 600;
   margin-right: 4px;
 }
@@ -242,7 +242,7 @@ const closeModal = () => {
 }
 
 .contact-close-btn {
-  background-color: #0ea5e9;
+  background-color: #131B42;
   color: white;
   padding: 0.6rem 1.4rem;
   border: none;
@@ -254,7 +254,7 @@ const closeModal = () => {
 }
 
 .contact-close-btn:hover {
-  background-color: #0284c7;
+  background-color: rgb(3, 114, 170);
 }
 
 /* Mobile Styles */

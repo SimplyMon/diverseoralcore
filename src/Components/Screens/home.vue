@@ -1,3 +1,4 @@
+<!-- second version -->
 <template>
   <section class="hero">
     <div class="hero__container">
@@ -44,7 +45,7 @@
       <!-- RIGHT: SINGLE IMAGE -->
       <div class="hero__image">
         <div class="img-wrap rounded-shadow">
-          <img src="../../Assets/images/hero2.png" alt="Patient smiling" />
+          <img src="../../Assets/images/hero.png" alt="Patient smiling" />
         </div>
       </div>
     </div>
@@ -87,7 +88,7 @@ import PromotionalSection from "../Sections/promotional.vue";
 .hero__content h1 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #151a42;
+  color: #131b42;
 }
 
 .hero__content h1 span {
@@ -155,9 +156,9 @@ import PromotionalSection from "../Sections/promotional.vue";
   object-fit: cover;
 }
 
-.rounded-shadow {
+/* .rounded-shadow {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
+} */
 .hero__stats {
   display: flex;
   justify-content: center;
