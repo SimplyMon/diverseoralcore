@@ -1,9 +1,7 @@
 <template>
   <section id="about" class="about">
     <div class="about__container">
-      <!-- 2-COLUMN LAYOUT -->
       <div class="about__grid">
-        <!-- LEFT: INTRO TEXT -->
         <div class="about__intro">
           <h2 class="section-title">About <span>Us</span></h2>
           <p>
@@ -18,10 +16,7 @@
           </p>
         </div>
 
-        <!-- RIGHT: DENTIST PROFILE SLIDER -->
         <div class="team">
-          <h3 class="team__title">Meet Our Professional Dentists</h3>
-
           <transition name="slide" mode="out-in">
             <div class="dentist-card" :key="dentists[currentIndex].name">
               <div class="dentist-card__img-wrapper">
@@ -35,20 +30,37 @@
                   <p>{{ dentists[currentIndex].bio }}</p>
                 </div>
 
-                <!-- CONTROLS ON LEFT & RIGHT -->
+                <!-- CONTROLS -->
                 <button
                   class="carousel-btn prev"
                   @click="prevDentist"
                   aria-label="Previous dentist"
                 >
-                  ‹
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                  >
+                    <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                  </svg>
                 </button>
+
                 <button
                   class="carousel-btn next"
                   @click="nextDentist"
                   aria-label="Next dentist"
                 >
-                  ›
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="white"
+                  >
+                    <path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -98,7 +110,7 @@ const prevDentist = () => {
 onMounted(() => {
   autoSlideInterval = setInterval(() => {
     nextDentist();
-  }, 5000);
+  }, 10000);
 });
 
 onUnmounted(() => {
@@ -146,31 +158,25 @@ onUnmounted(() => {
 
 /* === TEAM SLIDER === */
 .team {
-  text-align: center;
   position: relative;
-  min-height: auto;
 }
 
-.team__title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: #131b42;
+.dentist-card {
+  position: relative;
+  width: 100%;
 }
 
 /* SLIDE ANIMATION */
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
 }
+
 .slide-enter-from {
   opacity: 0;
   transform: translateX(80px);
 }
+
 .slide-leave-to {
   opacity: 0;
   transform: translateX(-80px);
@@ -190,12 +196,12 @@ onUnmounted(() => {
   height: auto;
   display: block;
   border-radius: 1rem;
-  object-fit: contain; /* show the whole image */
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
 .dentist-card__img-wrapper:hover .dentist-card__img {
-  transform: scale(1.02); /* gentle, modern hover */
+  transform: scale(1.02);
 }
 
 /* === OVERLAY INFO === */
@@ -212,8 +218,8 @@ onUnmounted(() => {
   align-items: center;
   text-align: center;
   transition: opacity 0.4s ease;
-  z-index: 2; /* sit below buttons */
-  pointer-events: none; /* don’t block arrow clicks */
+  z-index: 2;
+  pointer-events: none;
 }
 
 .dentist-card__img-wrapper:hover .dentist-card__overlay {
@@ -232,9 +238,9 @@ onUnmounted(() => {
   max-width: 85%;
 }
 
-/* === CAROUSEL BUTTONS (hidden by default, show on hover) === */
+/* === CAROUSEL BUTTONS === */
 .carousel-btn {
-  --btn-offset: 12px; /* tweak this if needed */
+  --btn-offset: 12px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -248,12 +254,10 @@ onUnmounted(() => {
   cursor: pointer;
   transition: opacity 0.3s ease, background 0.25s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
-  z-index: 3; /* above overlay */
+  z-index: 3;
   display: grid;
   place-items: center;
   box-shadow: 0 4px 14px rgba(2, 8, 23, 0.15);
-
-  /* hidden by default */
   opacity: 0;
   pointer-events: none;
 }
@@ -292,13 +296,13 @@ onUnmounted(() => {
     flex: 1;
     padding-right: 2rem;
   }
+
   .team {
     flex: 1;
-    min-height: 480px;
+    min-height: auto;
   }
 }
 
-/* Optional: nudge button offset on very small screens */
 @media (max-width: 380px) {
   .carousel-btn {
     width: 40px;
