@@ -18,7 +18,7 @@
         ]"
       >
         <li><router-link to="/" @click="closeMenu">Home</router-link></li>
-        <li><a href="#about" @click="closeMenu">About</a></li>
+        <li><router-link to="about" @click="closeMenu">About</router-link></li>
         <li><a href="#services" @click="closeMenu">Services</a></li>
 
         <li>
