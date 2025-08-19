@@ -27,16 +27,9 @@
         </div>
 
         <div class="hero__buttons">
-          <!-- <router-link
-            to="/services"
-            class="btn btn--secondary"
-            id="view-services"
-          >
+          <a href="#services" class="btn btn--secondary" id="view-services">
             View Services
-          </router-link> -->
-          <a href="#services" class="btn btn--secondary" id="view-services"
-            >View Services</a
-          >
+          </a>
           <router-link to="/book" class="btn btn--secondary">
             Book Appointment
           </router-link>
@@ -51,8 +44,8 @@
       </div>
     </div>
   </section>
-  <AboutSection />
 
+  <AboutSection />
   <ServicesSection />
   <WhatmakesSection />
   <PromotionalSection />
@@ -70,6 +63,7 @@ import PromotionalSection from "../Sections/promotional.vue";
   background: linear-gradient(to bottom, #ffffff, #f0faff);
   padding: 4rem 1.5rem;
   font-family: "Poppins", sans-serif;
+  min-height: 100vh;
 }
 
 .hero__container {
@@ -81,9 +75,70 @@ import PromotionalSection from "../Sections/promotional.vue";
   gap: 2.5rem;
 }
 
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero__content {
   max-width: 580px;
   text-align: center;
+  opacity: 0;
+  animation: fadeInLeft 1s ease-out forwards;
+}
+
+.hero__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInRight 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.stat {
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stat:nth-child(1) {
+  animation-delay: 0.6s;
+}
+.stat:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.stat:nth-child(3) {
+  animation-delay: 1s;
 }
 
 .hero__content h1 {
@@ -121,17 +176,17 @@ import PromotionalSection from "../Sections/promotional.vue";
 }
 
 #view-services {
-  background-color: #0ea5e9;
+  background-color: #131b42;
   color: white;
 }
 
 #view-services:hover {
-  background-color: #0284c7;
+  background-color: #06b6d4;
 }
 
 .btn--secondary {
-  border: 2px solid #0ea5e9;
-  color: #0ea5e9;
+  border: 2px solid #131b42;
+  color: #131b42;
   background-color: white;
 }
 
@@ -140,36 +195,25 @@ import PromotionalSection from "../Sections/promotional.vue";
 }
 
 /* IMAGE */
-.hero__image {
-  display: flex;
-  justify-content: center;
-}
-
 .img-wrap {
-  overflow: hidden;
-  border-radius: 1.5rem;
-  max-width: 300px;
+  max-width: 450px;
+  width: 100%;
+  height: auto;
 }
 
 .img-wrap img {
   width: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
-/* .rounded-shadow {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-} */
 .hero__stats {
   display: flex;
   justify-content: center;
   gap: 2rem;
   margin-bottom: 0.5rem;
   flex-wrap: wrap;
-}
-
-.stat {
-  text-align: center;
 }
 
 .stat h3 {
@@ -184,7 +228,7 @@ import PromotionalSection from "../Sections/promotional.vue";
   margin-top: 0.25rem;
 }
 
-/* Desktop adjustments */
+/* Desktop */
 @media (min-width: 768px) {
   .hero__container {
     flex-direction: row;
@@ -201,7 +245,7 @@ import PromotionalSection from "../Sections/promotional.vue";
   }
 
   .img-wrap {
-    max-width: 400px;
+    max-width: 530px;
   }
   .hero__stats {
     justify-content: flex-start;
@@ -209,6 +253,12 @@ import PromotionalSection from "../Sections/promotional.vue";
 
   .stat {
     text-align: left;
+  }
+}
+/* Mobile */
+@media (max-width: 767px) {
+  .hero__image {
+    display: none;
   }
 }
 </style>
