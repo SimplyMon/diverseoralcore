@@ -1,5 +1,10 @@
 <template>
-  <section id="about" class="about">
+  <section
+    id="about"
+    class="about"
+    ref="aboutSection"
+    :class="{ 'animate-enter': inView }"
+  >
     <div class="about__container">
       <div class="about__grid">
         <div class="about__intro">
@@ -107,10 +112,24 @@ const prevDentist = () => {
     (currentIndex.value - 1 + dentists.value.length) % dentists.value.length;
 };
 
+// Section animation
+const aboutSection = ref(null);
+const inView = ref(false);
+
 onMounted(() => {
-  autoSlideInterval = setInterval(() => {
-    nextDentist();
-  }, 10000);
+  autoSlideInterval = setInterval(nextDentist, 6000);
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        inView.value = true;
+        observer.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.2 }
+  );
+
+  if (aboutSection.value) observer.observe(aboutSection.value);
 });
 
 onUnmounted(() => {
@@ -119,6 +138,18 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* Section animation */
+.about {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about.animate-enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* === BASE STYLES === */
 .about {
   background: linear-gradient(135deg, #ffffff, #f8fafc);
@@ -135,11 +166,11 @@ onUnmounted(() => {
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .section-title span {
-  color: #0ea5e9;
+  color: #06b6d4;
 }
 
 .about__intro p {

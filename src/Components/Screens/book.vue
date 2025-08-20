@@ -202,7 +202,7 @@ textarea:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(30, 41, 59, 0.5); /* semi-dark overlay */
+  background: rgba(30, 41, 59, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;

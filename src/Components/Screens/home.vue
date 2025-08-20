@@ -3,7 +3,6 @@
 <template>
   <section class="hero">
     <div class="hero__container">
-      <!-- LEFT: TEXT -->
       <div class="hero__content">
         <h1>Your Smile. <span>Is Our Priority.</span></h1>
         <p>
@@ -36,7 +35,6 @@
         </div>
       </div>
 
-      <!-- RIGHT: SINGLE IMAGE -->
       <div class="hero__image">
         <div class="img-wrap rounded-shadow">
           <img src="../../Assets/images/hero.png" alt="Patient smiling" />
@@ -224,7 +222,7 @@ import PromotionalSection from "../Sections/promotional.vue";
 
 .stat p {
   font-size: 1rem;
-  color: #334155;
+  color: #475569;
   margin-top: 0.25rem;
 }
 

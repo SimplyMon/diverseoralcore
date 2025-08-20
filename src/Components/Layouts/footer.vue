@@ -1,8 +1,8 @@
 <template>
   <footer class="footer">
-    <!-- Top Section -->
+    <!-- Top  -->
     <div class="footer__top">
-      <!-- Brand Info -->
+      <!-- Brand  -->
       <div class="footer__brand">
         <div class="brand__logo-name">
           <img
@@ -77,11 +77,37 @@
   </footer>
 </template>
 
+<script setup>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  const brand = document.querySelector(".footer__brand");
+  const sections = document.querySelectorAll(".footer__section");
+  const bottom = document.querySelector(".footer__bottom");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(brand);
+  sections.forEach((section) => observer.observe(section));
+  observer.observe(bottom);
+});
+</script>
+
 <style scoped>
 .footer {
   font-family: "Poppins", sans-serif;
   background-color: #f9fafb;
-  color: #1e293b;
+  color: #131b42;
   padding: 3rem 1.5rem 2rem;
   border-top: 1px solid #e2e8f0;
   box-sizing: border-box;
@@ -90,11 +116,11 @@
 
 .footer__top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr; /* replaces 40% 20% 20% 20% */
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto 2rem;
-  padding: 0 1rem; /* Add padding to prevent touching edges */
+  padding: 0 1rem;
   box-sizing: border-box;
 }
 
@@ -152,7 +178,7 @@
 
 .footer__section a {
   text-decoration: none;
-  color: #1e293b;
+  color: #131b42;
   transition: color 0.3s;
 }
 
@@ -182,7 +208,7 @@
 }
 
 .socials a {
-  color: #1e293b;
+  color: #131b42;
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
@@ -190,6 +216,50 @@
 .socials a:hover {
   color: #0ea5e9;
 }
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer__brand,
+.footer__section {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.footer__brand.animate,
+.footer__section.animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.footer__brand.animate {
+  animation-delay: 0.3s;
+}
+
+.footer__section:nth-child(2).animate {
+  animation-delay: 0.5s;
+}
+.footer__section:nth-child(3).animate {
+  animation-delay: 0.7s;
+}
+.footer__section:nth-child(4).animate {
+  animation-delay: 0.9s;
+}
+
+.footer__bottom {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 1.1s;
+}
+
 @media (max-width: 768px) {
   .footer__top {
     grid-template-columns: 1fr;

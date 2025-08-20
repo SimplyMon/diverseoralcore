@@ -15,6 +15,28 @@
   </section>
 </template>
 
+<script setup>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  const promoContent = document.querySelector(".promo-banner__content");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(promoContent);
+});
+</script>
+
 <style scoped>
 .promo-banner {
   background: linear-gradient(to right, #0ea5e9, #06b6d4);
@@ -36,7 +58,7 @@
 }
 
 .promo-banner__content h2 span {
-  color: #151a42;
+  color: #131b42;
   font-weight: 600;
 }
 
@@ -59,5 +81,25 @@
 .promo-banner__button:hover {
   background-color: #e0f7ff;
   color: #0284c7;
+}
+/* ===== ANIMATION ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.promo-banner__content {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.promo-banner__content.animate {
+  animation: fadeInUp 1s ease-out forwards;
 }
 </style>

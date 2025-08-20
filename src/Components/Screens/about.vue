@@ -6,7 +6,6 @@
         <img src="../../Assets/images/about2.png" alt="Smiling patient" />
       </div>
 
-      <!-- TEXT & STATS RIGHT -->
       <div class="about-landing__content">
         <h2>We Make <span>Smiles Brighter</span></h2>
         <p class="tagline">Fast, friendly, and expert dental care.</p>

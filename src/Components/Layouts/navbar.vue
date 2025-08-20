@@ -1,8 +1,10 @@
 <template>
   <nav class="navbar">
     <div class="navbar__logo">
-      <img src="../../Assets/images/logo.jpg" alt="Logo" />
-      <span>Diverse Oral Core</span>
+      <router-link to="/" class="logo-link">
+        <img src="../../Assets/images/logo.jpg" alt="Logo" />
+        <span>Diverse Oral Core</span>
+      </router-link>
     </div>
 
     <div class="navbar__toggle" @click="toggleMenu">
@@ -96,7 +98,7 @@ const closeModal = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 50px;
   backdrop-filter: blur(12px);
   background-color: rgba(255, 255, 255, 0.6);
@@ -113,7 +115,7 @@ const closeModal = () => {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.25rem;
+  font-size: 0.9rem;
 }
 .navbar__logo span {
   font-weight: 900;
@@ -124,6 +126,13 @@ const closeModal = () => {
   height: 40px;
   width: 40px;
   border-radius: 50%;
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .navbar__toggle {
@@ -143,6 +152,10 @@ const closeModal = () => {
   font-weight: 500;
   position: relative;
   transition: color 0.3s ease;
+}
+.navbar__links li .router-link-exact-active {
+  color: #0077cc !important;
+  font-weight: bold;
 }
 
 .navbar__links li a::after {
@@ -285,7 +298,6 @@ const closeModal = () => {
   }
 }
 
-/* Transition for toggle */
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition: opacity 0.3s ease, transform 0.3s ease;
