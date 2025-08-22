@@ -24,7 +24,7 @@
         <li><a href="#services" @click="closeMenu">Services</a></li>
 
         <li>
-          <router-link to="/book" @click="closeMenu">Book</router-link>
+          <router-link to="/book" @click="closeMenu">Book Now</router-link>
         </li>
         <li>
           <a href="javascript:void(0)" @click="openModal" class="cta"
@@ -99,7 +99,7 @@ const closeModal = () => {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  border-radius: 50px;
+  border-radius: 14px;
   backdrop-filter: blur(12px);
   background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -154,7 +154,7 @@ const closeModal = () => {
   transition: color 0.3s ease;
 }
 .navbar__links li .router-link-exact-active {
-  color: #0077cc !important;
+  color: #131b42 !important;
   font-weight: bold;
 }
 
@@ -165,7 +165,7 @@ const closeModal = () => {
   bottom: -4px;
   width: 100%;
   height: 2px;
-  background-color: #0077cc;
+  background-color: #131b42;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -176,14 +176,14 @@ const closeModal = () => {
 }
 
 .navbar__links li a:hover:not(.cta) {
-  color: #0077cc;
+  color: #131b42;
 }
 
 .navbar__links li .cta {
   background-color: #131b42;
   color: white;
   padding: 0.5rem 1.25rem;
-  border-radius: 25px;
+  border-radius: 7px;
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
@@ -193,7 +193,7 @@ const closeModal = () => {
 }
 
 .navbar__links li a:hover:not(.cta) {
-  color: #0077cc;
+  color: #131b42;
 }
 
 .contact-modal-overlay {
@@ -211,7 +211,7 @@ const closeModal = () => {
 .contact-modal-content {
   background: #ffffff;
   padding: 2rem;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   max-width: 500px;
   width: 90%;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -257,7 +257,7 @@ const closeModal = () => {
   color: white;
   padding: 0.6rem 1.4rem;
   border: none;
-  border-radius: 999px;
+  border-radius: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;

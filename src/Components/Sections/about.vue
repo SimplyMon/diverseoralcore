@@ -10,9 +10,12 @@
         <div class="about__intro">
           <h2 class="section-title">About <span>Us</span></h2>
           <p>
-            At Diverse Oral Core, we are committed to excellence in dental care.
-            With a welcoming atmosphere and cutting-edge technology, we deliver
-            personalized, stress-free treatment for patients of all ages.
+            At Diverse Oral Core, we deliver excellence in dental care with
+            cutting-edge technology and a welcoming atmosphere. Your comfort and
+            smile are our top priorities, and our expert team makes every visit
+            seamless—from routine checkups to advanced procedures. Meet our
+            Doctors and experience professional care built on precision, trust,
+            and results.
           </p>
           <p>
             Your comfort and smile are our top priorities. Our expert staff make

@@ -166,7 +166,7 @@ import PromotionalSection from "../Sections/promotional.vue";
 .btn {
   font-size: 1rem;
   padding: 0.75rem 1.6rem;
-  border-radius: 999px;
+  border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s ease;

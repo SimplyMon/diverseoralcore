@@ -153,10 +153,9 @@ onMounted(() => {
 /* Button */
 .btn--secondary {
   padding: 0.75rem 1.6rem;
-  border-radius: 999px;
-  border: 2px solid #06b6d4;
-  color: #06b6d4;
-  background-color: white;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #131b42;
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s ease;
@@ -164,7 +163,7 @@ onMounted(() => {
 }
 
 .btn--secondary:hover {
-  background-color: #e0faff;
+  background-color: #06b6d4;
 }
 /* ANIMATION */
 @keyframes fadeInUp {

@@ -69,18 +69,18 @@ onMounted(() => {
 }
 
 .promo-banner__button {
-  background-color: white;
-  color: #0ea5e9;
+  background-color: #131b42;
+  color: white;
   padding: 0.75rem 1.5rem;
-  border-radius: 30px;
+  border-radius: 0.5rem;
   font-weight: 600;
   transition: background-color 0.3s ease, color 0.3s ease;
   text-decoration: none;
+  display: inline-block;
 }
 
 .promo-banner__button:hover {
-  background-color: #e0f7ff;
-  color: #0284c7;
+  background-color: #28367c;
 }
 /* ===== ANIMATION ===== */
 @keyframes fadeInUp {
