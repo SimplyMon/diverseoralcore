@@ -10,7 +10,7 @@
       <div class="services__cards">
         <div class="service-card">
           <img
-            src="../../Assets/images/teeth-cleaning.png"
+            src="../.././Assets/images/teeth-cleaning.png"
             alt="Teeth Cleaning"
             class="service-image"
             loading="lazy"
@@ -24,7 +24,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/cosmetics.png"
+            src="../.././Assets/images/cosmetics.png"
             alt="Cosmetic Dentistry"
             class="service-image"
             loading="lazy"
@@ -37,7 +37,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/braces.png"
+            src="../.././Assets/images/braces.png"
             alt="Braces & Aligners"
             class="service-image"
             loading="lazy"
@@ -66,7 +66,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-1.png"
+            src="../.././Assets/images/frame-1.png"
             alt="Oral Surgery"
             class="service-image"
             loading="lazy"
@@ -80,7 +80,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-2.png"
+            src="../.././Assets/images/frame-2.png"
             alt="Pediatric Dentistry"
             class="service-image"
             loading="lazy"
@@ -93,7 +93,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-3.png"
+            src="../.././Assets/images/frame-3.png"
             alt="Preventive Care"
             class="service-image"
             loading="lazy"
@@ -104,7 +104,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-4.png"
+            src="../.././Assets/images/frame-4.png"
             alt="Emergency Dentistry"
             class="service-image"
             loading="lazy"
@@ -117,7 +117,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-5.png"
+            src="../.././Assets/images/frame-5.png"
             alt="Teeth Whitening"
             class="service-image"
             loading="lazy"
@@ -128,7 +128,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-6.png"
+            src="../.././Assets/images/frame-6.png"
             alt="Crowns & Bridges"
             class="service-image"
             loading="lazy"
@@ -141,7 +141,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-7.png"
+            src="../.././Assets/images/frame-7.png"
             alt="Veneers"
             class="service-image"
             loading="lazy"
@@ -155,7 +155,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-8.png"
+            src="../.././Assets/images/frame-8.png"
             alt="Invisalign"
             class="service-image"
             loading="lazy"
@@ -168,7 +168,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-9.png"
+            src="../.././Assets/images/frame-9.png"
             alt="Dentures"
             class="service-image"
             loading="lazy"
@@ -182,7 +182,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-10.png"
+            src="../.././Assets/images/frame-10.png"
             alt="TMJ Treatment"
             class="service-image"
             loading="lazy"
@@ -195,7 +195,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-11.png"
+            src="../.././Assets/images/frame-11.png"
             alt="Sedation Dentistry"
             class="service-image"
             loading="lazy"
@@ -206,7 +206,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-12.png"
+            src="../.././Assets/images/frame-12.png"
             alt="Mouthguards"
             class="service-image"
             loading="lazy"
@@ -217,7 +217,7 @@
 
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-13.png"
+            src="../.././Assets/images/frame-13.png"
             alt="Smile Makeovers"
             class="service-image"
             loading="lazy"
