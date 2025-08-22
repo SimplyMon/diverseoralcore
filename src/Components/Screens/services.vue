@@ -8,12 +8,12 @@
       </p>
 
       <div class="services__cards">
-        <!-- Existing cards -->
         <div class="service-card">
           <img
             src="../../Assets/images/teeth-cleaning.png"
             alt="Teeth Cleaning"
             class="service-image"
+            loading="lazy"
           />
           <h3>Teeth Cleaning</h3>
           <p>
@@ -21,22 +21,26 @@
             preventive care.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/cosmetics.png"
             alt="Cosmetic Dentistry"
             class="service-image"
+            loading="lazy"
           />
           <h3>Cosmetic Dentistry</h3>
           <p>
             Whitening, veneers, and more to help you achieve your dream smile.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/braces.png"
             alt="Braces & Aligners"
             class="service-image"
+            loading="lazy"
           />
           <h3>Braces & Aligners</h3>
           <p>
@@ -48,9 +52,10 @@
         <!-- New cards -->
         <div class="service-card">
           <img
-            src="../../Assets/images/frame.png"
+            src="../../Assets/images/frame-implants.png"
             alt="Dental Implants"
             class="service-image"
+            loading="lazy"
           />
           <h3>Dental Implants</h3>
           <p>
@@ -58,11 +63,13 @@
             results.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-1.png"
             alt="Oral Surgery"
             class="service-image"
+            loading="lazy"
           />
           <h3>Oral Surgery</h3>
           <p>
@@ -70,62 +77,74 @@
             procedures.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-2.png"
             alt="Pediatric Dentistry"
             class="service-image"
+            loading="lazy"
           />
           <h3>Pediatric Dentistry</h3>
           <p>
             Gentle, fun, and stress-free dental care for children of all ages.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-3.png"
             alt="Preventive Care"
             class="service-image"
+            loading="lazy"
           />
           <h3>Preventive Care</h3>
           <p>Routine checkups and sealants to protect your smile long-term.</p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-4.png"
             alt="Emergency Dentistry"
             class="service-image"
+            loading="lazy"
           />
           <h3>Emergency Care</h3>
           <p>
             Immediate treatment for dental pain, injuries, and urgent problems.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-5.png"
             alt="Teeth Whitening"
             class="service-image"
+            loading="lazy"
           />
           <h3>Teeth Whitening</h3>
           <p>Professional whitening for a brighter, more confident smile.</p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-6.png"
             alt="Crowns & Bridges"
             class="service-image"
+            loading="lazy"
           />
           <h3>Crowns & Bridges</h3>
           <p>
             Durable restorations to strengthen teeth and restore full function.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-7.png"
             alt="Veneers"
             class="service-image"
+            loading="lazy"
           />
           <h3>Veneers</h3>
           <p>
@@ -133,22 +152,26 @@
             teeth.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-8.png"
             alt="Invisalign"
             class="service-image"
+            loading="lazy"
           />
           <h3>Invisalign</h3>
           <p>
             Clear aligners to discreetly straighten your smile without braces.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-9.png"
             alt="Dentures"
             class="service-image"
+            loading="lazy"
           />
           <h3>Dentures & Partials</h3>
           <p>
@@ -156,40 +179,48 @@
             teeth.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-10.png"
             alt="TMJ Treatment"
             class="service-image"
+            loading="lazy"
           />
           <h3>TMJ Treatment</h3>
           <p>
             Relieve jaw pain and improve function with customized therapies.
           </p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-11.png"
             alt="Sedation Dentistry"
             class="service-image"
+            loading="lazy"
           />
           <h3>Sedation Dentistry</h3>
           <p>Comfortable dental visits with safe, calming sedation options.</p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-12.png"
             alt="Mouthguards"
             class="service-image"
+            loading="lazy"
           />
           <h3>Mouthguards</h3>
           <p>Custom sports and night guards to protect your teeth and jaw.</p>
         </div>
+
         <div class="service-card">
           <img
             src="../../Assets/images/frame-13.png"
             alt="Smile Makeovers"
             class="service-image"
+            loading="lazy"
           />
           <h3>Smile Makeovers</h3>
           <p>Personalized treatments to completely transform your smile.</p>
@@ -209,7 +240,7 @@ onMounted(() => {
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = "running";
+          entry.target.classList.add("animate");
           observer.unobserve(entry.target);
         }
       });
@@ -217,10 +248,7 @@ onMounted(() => {
     { threshold: 0.2 }
   );
 
-  cards.forEach((card) => {
-    card.style.animationPlayState = "paused";
-    observer.observe(card);
-  });
+  cards.forEach((card) => observer.observe(card));
 });
 </script>
 
@@ -312,6 +340,9 @@ onMounted(() => {
 .service-card {
   opacity: 0;
   transform: translateY(30px);
+  will-change: transform, opacity;
+}
+.service-card.animate {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
