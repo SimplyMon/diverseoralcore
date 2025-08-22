@@ -52,7 +52,7 @@
         <!-- New cards -->
         <div class="service-card">
           <img
-            src="../../Assets/images/frame-implants.png"
+            src="../.././Assets/images/Frame-implants.png"
             alt="Dental Implants"
             class="service-image"
             loading="lazy"
