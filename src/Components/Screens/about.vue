@@ -24,10 +24,6 @@
             <p>Expert Dentists</p>
           </div>
         </div>
-
-        <router-link to="/book" class="btn btn--secondary">
-          Book Appointment
-        </router-link>
       </div>
     </div>
   </section>

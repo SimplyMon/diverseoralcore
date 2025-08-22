@@ -41,6 +41,7 @@
           <li><a href="#">Clinics</a></li>
           <li><a href="#">Special Offers</a></li>
           <li><a href="#">Careers</a></li>
+          <li><a href="#">Testimonials</a></li>
           <li><a href="#">Complaints Policy</a></li>
           <li><a href="#">Terms & Conditions</a></li>
         </ul>

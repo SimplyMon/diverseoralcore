@@ -20,8 +20,156 @@
         ]"
       >
         <li><router-link to="/" @click="closeMenu">Home</router-link></li>
-        <li><router-link to="about" @click="closeMenu">About</router-link></li>
-        <li><a href="#services" @click="closeMenu">Services</a></li>
+        <li><router-link to="/about" @click="closeMenu">About</router-link></li>
+        <li class="dropdown">
+          <router-link
+            to="/services"
+            class="dropdown-toggle"
+            @click="toggleServices"
+          >
+            Services
+            <i
+              :class="[
+                'fas',
+                servicesOpen ? 'fa-chevron-up' : 'fa-chevron-down',
+              ]"
+            ></i>
+          </router-link>
+
+          <transition name="slide-fade">
+            <!-- Desktop: -->
+            <div v-if="windowWidth > 768" class="dropdown-menu">
+              <div class="services-grid">
+                <router-link to="/services/general" @click="closeMenu"
+                  >General Dentistry</router-link
+                >
+                <router-link to="/services/cosmetic" @click="closeMenu"
+                  >Cosmetic Dentistry</router-link
+                >
+                <router-link to="/services/orthodontics" @click="closeMenu"
+                  >Orthodontics</router-link
+                >
+                <router-link to="/services/implants" @click="closeMenu"
+                  >Implants</router-link
+                >
+                <router-link to="/services/oral-surgery" @click="closeMenu"
+                  >Oral Surgery</router-link
+                >
+                <router-link to="/services/pediatric" @click="closeMenu"
+                  >Pediatric Dentistry</router-link
+                >
+                <router-link to="/services/preventive" @click="closeMenu"
+                  >Preventive Care</router-link
+                >
+                <router-link to="/services/emergency" @click="closeMenu"
+                  >Emergency Care</router-link
+                >
+                <router-link to="/services/periodontics" @click="closeMenu"
+                  >Periodontics</router-link
+                >
+                <router-link to="/services/endodontics" @click="closeMenu"
+                  >Endodontics</router-link
+                >
+                <router-link to="/services/whitening" @click="closeMenu"
+                  >Teeth Whitening</router-link
+                >
+                <router-link to="/services/crowns-bridges" @click="closeMenu"
+                  >Crowns & Bridges</router-link
+                >
+                <router-link to="/services/veneers" @click="closeMenu"
+                  >Veneers</router-link
+                >
+                <router-link to="/services/invisalign" @click="closeMenu"
+                  >Invisalign</router-link
+                >
+                <router-link to="/services/dentures" @click="closeMenu"
+                  >Dentures & Partials</router-link
+                >
+                <router-link to="/services/tmj" @click="closeMenu"
+                  >TMJ Treatment</router-link
+                >
+                <router-link to="/services/sedation" @click="closeMenu"
+                  >Sedation Dentistry</router-link
+                >
+                <router-link to="/services/cleanings" @click="closeMenu"
+                  >Dental Cleanings</router-link
+                >
+                <router-link to="/services/mouthguards" @click="closeMenu"
+                  >Mouthguards</router-link
+                >
+                <router-link to="/services/smile-makeovers" @click="closeMenu"
+                  >Smile Makeovers</router-link
+                >
+              </div>
+            </div>
+
+            <!-- Mobile: -->
+            <div v-else-if="servicesOpen" class="dropdown-menu">
+              <div class="services-grid">
+                <router-link to="/services/general" @click="closeMenu"
+                  >General Dentistry</router-link
+                >
+                <router-link to="/services/cosmetic" @click="closeMenu"
+                  >Cosmetic Dentistry</router-link
+                >
+                <router-link to="/services/orthodontics" @click="closeMenu"
+                  >Orthodontics</router-link
+                >
+                <router-link to="/services/implants" @click="closeMenu"
+                  >Implants</router-link
+                >
+                <router-link to="/services/oral-surgery" @click="closeMenu"
+                  >Oral Surgery</router-link
+                >
+                <router-link to="/services/pediatric" @click="closeMenu"
+                  >Pediatric Dentistry</router-link
+                >
+                <router-link to="/services/preventive" @click="closeMenu"
+                  >Preventive Care</router-link
+                >
+                <router-link to="/services/emergency" @click="closeMenu"
+                  >Emergency Care</router-link
+                >
+                <router-link to="/services/periodontics" @click="closeMenu"
+                  >Periodontics</router-link
+                >
+                <router-link to="/services/endodontics" @click="closeMenu"
+                  >Endodontics</router-link
+                >
+                <router-link to="/services/whitening" @click="closeMenu"
+                  >Teeth Whitening</router-link
+                >
+                <router-link to="/services/crowns-bridges" @click="closeMenu"
+                  >Crowns & Bridges</router-link
+                >
+                <router-link to="/services/veneers" @click="closeMenu"
+                  >Veneers</router-link
+                >
+                <router-link to="/services/invisalign" @click="closeMenu"
+                  >Invisalign</router-link
+                >
+                <router-link to="/services/dentures" @click="closeMenu"
+                  >Dentures & Partials</router-link
+                >
+                <router-link to="/services/tmj" @click="closeMenu"
+                  >TMJ Treatment</router-link
+                >
+                <router-link to="/services/sedation" @click="closeMenu"
+                  >Sedation Dentistry</router-link
+                >
+                <router-link to="/services/cleanings" @click="closeMenu"
+                  >Dental Cleanings</router-link
+                >
+                <router-link to="/services/mouthguards" @click="closeMenu"
+                  >Mouthguards</router-link
+                >
+                <router-link to="/services/smile-makeovers" @click="closeMenu"
+                  >Smile Makeovers</router-link
+                >
+              </div>
+            </div>
+          </transition>
+        </li>
 
         <li>
           <router-link to="/book" @click="closeMenu">Book Now</router-link>
@@ -63,6 +211,14 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 const menuOpen = ref(false);
 const windowWidth = ref(window.innerWidth);
+const servicesOpen = ref(false);
+
+const toggleServices = (e) => {
+  if (windowWidth.value <= 768) {
+    e.preventDefault();
+    servicesOpen.value = !servicesOpen.value;
+  }
+};
 
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
@@ -84,7 +240,7 @@ const showModal = ref(false);
 
 const openModal = () => {
   showModal.value = true;
-  closeMenu(); // Optional: close mobile menu
+  closeMenu();
 };
 
 const closeModal = () => {
@@ -268,6 +424,112 @@ const closeModal = () => {
   background-color: #212e72;
 }
 
+/* SERVIECES HOVE */
+.navbar__links li.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-53%);
+  min-width: 600px;
+  max-width: 90vw;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-x: auto;
+  padding-top: 50px;
+  margin-top: 6 px;
+}
+
+.navbar__links li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; /* keep spacing */
+  position: relative;
+}
+.services-grid a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.services-grid a:nth-child(4n + 1),
+.services-grid a:nth-child(4n + 2),
+.services-grid a:nth-child(4n + 3) {
+  border-right: 1px solid #e0e0e0;
+}
+
+.services-grid a:hover {
+  background: #f0faff;
+  color: #131b42;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-toggle i {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    min-width: unset;
+    box-shadow: none;
+    padding: 1rem 0;
+    margin-top: 0;
+    transform: none;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    padding: 0.5rem 1rem;
+    background: transparent;
+  }
+
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+  }
+
+  .services-grid a {
+    padding: 0.5rem 0;
+    border-radius: 0;
+  }
+
+  .dropdown-toggle {
+    justify-content: center;
+  }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   .navbar__toggle {
@@ -286,6 +548,8 @@ const closeModal = () => {
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     z-index: 999;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 
   .navbar__links li {

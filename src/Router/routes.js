@@ -2,8 +2,12 @@ import { createRouter, createWebHistory } from "vue-router";
 
 // components
 import homeScreen from "../Components/Screens/home.vue";
-import book from "../Components/Screens/book.vue";
+import bookScreen from "../Components/Screens/book.vue";
 import aboutScreen from "../Components/Screens/about.vue";
+import servicesScreen from "../Components/Screens/services.vue";
+
+// NOT FOUND
+import NotFoundScreen from "@/Components/Layouts/NotFound.vue";
 
 const routes = [
   {
@@ -14,12 +18,24 @@ const routes = [
   {
     path: "/book",
     name: "book",
-    component: book,
+    component: bookScreen,
   },
   {
     path: "/about",
     name: "about",
     component: aboutScreen,
+  },
+  {
+    path: "/services",
+    name: "services",
+    component: servicesScreen,
+  },
+
+  // NOT FOUND SCREEN
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFoundScreen,
   },
 ];
 
