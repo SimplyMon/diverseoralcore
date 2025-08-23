@@ -103,7 +103,7 @@ const images = ref([
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: #06b5d4ab;
   display: flex;
   justify-content: center;
   align-items: center;

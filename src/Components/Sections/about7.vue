@@ -106,7 +106,7 @@ const directionsUrl = ref(
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background: #06b6d4;
+  background: #131b42;
   color: #fff;
   border-radius: 0.5rem;
   text-decoration: none;
@@ -115,7 +115,7 @@ const directionsUrl = ref(
 }
 
 .directions-btn:hover {
-  background: #0288a5;
+  background: #06b6d4;
 }
 
 @media (max-width: 768px) {
