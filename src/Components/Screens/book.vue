@@ -56,7 +56,10 @@
     <div v-if="showModal" class="modal-overlay">
       <div class="modal-content">
         <h3>Success!</h3>
-        <p>Your appointment request has been sent.</p>
+        <p>
+          Your appointment request has been sent. <br />Wait for our message or
+          email regarding your appointment.
+        </p>
         <button @click="closeModal" class="btn btn--primary">OK</button>
       </div>
     </div>
@@ -80,7 +83,6 @@ function submitForm() {
   console.log("Appointment Request:", form.value);
   showModal.value = true;
 
-  // Reset form values
   form.value = {
     name: "",
     email: "",
@@ -100,6 +102,7 @@ function closeModal() {
   background: linear-gradient(to bottom, #ffffff, #f0faff);
   padding: 4rem 1.5rem;
   font-family: "Poppins", sans-serif;
+  margin-top: 4rem;
 }
 
 .booking__container {

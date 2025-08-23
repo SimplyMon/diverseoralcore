@@ -213,6 +213,17 @@ const menuOpen = ref(false);
 const windowWidth = ref(window.innerWidth);
 const servicesOpen = ref(false);
 
+onMounted(() => {
+  window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
+});
+
 const toggleServices = (e) => {
   if (windowWidth.value <= 768) {
     e.preventDefault();
@@ -255,16 +266,23 @@ const closeModal = () => {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  border-radius: 14px;
-  backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  position: fixed;
   top: 10px;
-  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
   max-width: 1200px;
-  margin: auto;
+  width: 90%;
+  border-radius: 14px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(7px);
 }
 
 .navbar__logo {

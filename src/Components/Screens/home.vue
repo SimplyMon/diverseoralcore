@@ -26,9 +26,13 @@
         </div>
 
         <div class="hero__buttons">
-          <a href="#services" class="btn btn--secondary" id="view-services">
+          <router-link
+            to="/services"
+            class="btn btn--secondary"
+            id="view-services"
+          >
             View Services
-          </a>
+          </router-link>
           <router-link to="/book" class="btn btn--secondary">
             Book Appointment
           </router-link>
@@ -71,6 +75,7 @@ import PromotionalSection from "../Sections/promotional.vue";
   flex-direction: column-reverse;
   align-items: center;
   gap: 2.5rem;
+  padding-top: 4rem;
 }
 
 /* ===== ANIMATIONS ===== */
