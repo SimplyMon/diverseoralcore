@@ -6,12 +6,27 @@
 
       <div class="team__grid">
         <div class="team-card" v-for="(member, index) in team" :key="index">
+          <!-- Photo -->
           <div class="team-image">
             <img :src="member.photo" :alt="member.name" />
           </div>
-          <h3>{{ member.name }}</h3>
-          <p class="role">{{ member.role }}</p>
-          <div class="team-socials"></div>
+
+          <!-- Info -->
+          <div class="team-info">
+            <h3>{{ member.name }}</h3>
+            <p class="role">{{ member.role }}</p>
+          </div>
+
+          <!-- Socials -->
+          <div class="team-socials">
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
         </div>
       </div>
     </div>
@@ -24,11 +39,11 @@ import { ref, onMounted } from "vue";
 import about1 from "@/Assets/images/about1.png";
 import about2 from "@/Assets/images/about2.png";
 import about3 from "@/Assets/images/about3.png";
-import about4 from "@/Assets/images/about2.png";
-import team5 from "@/Assets/images/about2.png";
-import team6 from "@/Assets/images/about2.png";
-import team7 from "@/Assets/images/about2.png";
-import team8 from "@/Assets/images/about2.png";
+import about4 from "@/Assets/images/t1.png";
+import team5 from "@/Assets/images/t2.png";
+import team6 from "@/Assets/images/t3.png";
+import team7 from "@/Assets/images/t4.png";
+import team8 from "@/Assets/images/t5.png";
 
 const team = ref([
   { name: "Dr. Angela Santos", role: "Lead Dentist", photo: about1 },
@@ -96,13 +111,15 @@ onMounted(() => {
   grid-template-columns: 1fr;
   gap: 2rem;
 }
-
 .team-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: #fff;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
   opacity: 0;
   transform: translateY(30px);
 }
@@ -113,13 +130,13 @@ onMounted(() => {
 }
 
 .team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
 }
 
 .team-image {
-  width: 100%;
-  height: 220px;
+  position: relative;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -127,31 +144,45 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .team-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
-.team-card h3 {
-  font-size: 1.2rem;
-  color: #06b6d4;
-  margin: 1rem 0 0.3rem;
+.team-info {
+  padding: 1.2rem;
+}
+
+.team-info h3 {
+  font-size: 1.25rem;
   font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
 }
 
-.team-card .role {
-  font-size: 1rem;
+.team-info .role {
+  font-size: 0.95rem;
   color: #64748b;
-  margin-bottom: 1rem;
 }
 
 .team-socials {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   justify-content: center;
-  padding-bottom: 1rem;
+  padding: 0.8rem 0 1.2rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.team-socials a {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  transition: color 0.3s;
+}
+
+.team-socials a:hover {
+  color: #06b6d4;
 }
 
 @media (min-width: 768px) {

@@ -269,6 +269,7 @@ onMounted(() => {
   font-size: 2.2rem;
   color: #131b42;
   margin-bottom: 1rem;
+  margin-top: 4rem;
 }
 
 .services h2 span {
