@@ -40,7 +40,6 @@
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: IMAGE -->
         <div class="difference__image">
           <img src="../../Assets/images/hero1.png" alt="Dental Team" />
         </div>
@@ -48,6 +47,35 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { onMounted } from "vue";
+
+onMounted(() => {
+  const features = document.querySelectorAll(".feature");
+  const image = document.querySelector(".difference__image img");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  features.forEach((feature, index) => {
+    feature.style.animationDelay = `${0.3 + index * 0.2}s`;
+    observer.observe(feature);
+  });
+
+  image.style.animationDelay = "1.2s";
+  observer.observe(image);
+});
+</script>
 
 <style scoped>
 .difference {
@@ -63,7 +91,7 @@
 .difference h2 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #151a42;
+  color: #131b42;
   text-align: center;
 }
 
@@ -103,7 +131,7 @@
 
 .feature h3 {
   font-size: 1.2rem;
-  color: #0ea5e9;
+  color: #06b6d4;
   margin-bottom: 0.5rem;
 }
 
@@ -120,10 +148,47 @@
   object-fit: cover;
 }
 
+/* ANIMATION */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.feature,
+.difference__image img {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.feature.animate {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.difference__image img.animate {
+  animation: fadeInRight 1s ease-out forwards;
+}
+
 @media (min-width: 1024px) {
   .difference__content {
     flex-direction: row;
-    align-items: stretch; /* Ensures both columns are equal height */
+    align-items: stretch;
   }
 
   .difference__features {
@@ -134,14 +199,14 @@
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Stretch to match height of left */
+    align-items: stretch;
   }
 
   .difference__image img {
-    height: 100%; /* Match parent height */
+    height: 100%;
     width: 100%;
-    max-width: none; /* Allow full width */
-    object-fit: cover; /* Prevent distortion */
+    max-width: none;
+    object-fit: cover;
     border-radius: 1rem;
   }
 }
