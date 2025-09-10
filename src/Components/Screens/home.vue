@@ -1,5 +1,4 @@
-<!-- second version -->
-<!-- asd -->
+
 <template>
   <section class="hero">
     <div class="hero__container">
